@@ -1,12 +1,31 @@
 {
-  "private": true,
   "dependencies": {
     "babel-cli": "^6.5.1",
     "babel-eslint": "^5.0.0",
     "babel-plugin-syntax-async-functions": "^6.5.0",
     "babel-plugin-transform-async-to-generator": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
+    "esdoc": "^0.4.5",
     "eslint": "^2.1.0",
-    "lerna": "^1.1.1"
+    "lerna": "^1.1.1",
+    "lerna-run": "0.0.2",
+    "lice": "^1.0.28",
+    "touch": "^1.0.0"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "all-init": "npm-run-all init:*",
+    "build": "npm-run-all build:*",
+    "build:babel": "lerna-run -- babel src/ --out-dir lib/",
+    "build:esdoc": "lerna-run -- esdoc -c ../../.esdoc.json",
+    "build:fixpack": "lerna-run -- fixpack",
+    "fixpack": "fixpack",
+    "init:license": "lerna-run -- lice -g -l mit -u 3846masa",
+    "init:npm": "lerna-run -- npm init -y",
+    "init:readme": "lerna-run -- touch README.md",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:babel": "lerna-run --parallel -- babel src/ --out-dir lib/ --watch"
   }
 }
