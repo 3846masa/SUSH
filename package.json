@@ -16,7 +16,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "all-init": "npm-run-all init:*",
+    "all-init": "npm-run-all init:* build:fixpack",
     "build": "npm-run-all build:*",
     "build:babel": "lerna-run -- babel src/ --out-dir lib/",
     "build:esdoc": "lerna-run -- esdoc -c ../../.esdoc.json",
