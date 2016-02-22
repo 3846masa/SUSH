@@ -27,5 +27,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-run-all --parallel watch:*",
     "watch:babel": "lerna-run --parallel -- babel src/ --out-dir lib/ --watch"
+  },
+  "devDependencies": {
+    "babel-plugin-add-module-exports": "^0.1.2"
   }
 }
