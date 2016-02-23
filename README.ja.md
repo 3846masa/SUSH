@@ -1,6 +1,6 @@
 # 🍣 SUSH 🍣 : Simple Url SHortener
 
-![logo](img/sush_logo.svg)
+![logo](img/sush_logo.png)
 
 Simple Url SHortener
 
