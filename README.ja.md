@@ -8,7 +8,7 @@ Simple Url SHortener
 
 ブラウザで動く短縮URLシステムです．
 
-"http://example.com/#/google"のようにアクセスすると， SUSHはhashから文字列を抽出し (``/google``)，対応するURLへとリダイレクトします．
+``http://example.com/#/google``のようにアクセスすると， SUSHはhashから文字列を抽出し (``/google``)，対応するURLへとリダイレクトします．
 
 プラグインを追加することで，自分好みの短縮URLが実現できます．
 

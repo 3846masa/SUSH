@@ -8,7 +8,7 @@ Simple Url SHortener
 
 This is a URL shortener working on browser.
 
-When you access "http://example.com/#/google", SUSH gets shorten-key from hash (``#/google``), and redirect URL.
+When you access ``http://example.com/#/google``, SUSH gets shorten-key from hash (``#/google``), and redirect URL.
 
 Because of working on browser, you can provide URL shortener via Github-Pages or any HTTP server.
 
