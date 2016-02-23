@@ -40,7 +40,7 @@ new SUSH().flow([
 - [sush](./packages/sush)
   - Core module
 - [sush-plugin-key-trim](./packages/sush-plugin-key-trim)
-  - Key is trimming chars from head or tail
+  - Trim heads and/or tails from key
 - [sush-plugin-redirect](./packages/sush-plugin-redirect)
   - Redirect URL which is pair of key
 - [sush-plugin-spreadsheet](./packages/sush-plugin-spreadsheet)
