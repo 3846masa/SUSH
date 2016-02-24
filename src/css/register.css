@@ -1,0 +1,61 @@
+@import "bootswatch/flatly/bootstrap.min.css";
+@import "font-awesome/css/font-awesome.min.css";
+
+@define-mixin center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html, body {
+  background: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.outer {
+  width: 100%;
+  height: 100%;
+  @mixin center-flex;
+}
+
+header, footer {
+  margin: 10px;
+}
+
+header {
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+}
+
+main {
+  [class^=col-] {
+    margin-bottom: 10px
+  }
+}
+
+footer {
+  text-align: center;
+}
+
+.control-label {
+  display: none;
+}
+
+.has-error {
+  .input-group-addon {
+    color: #fff;
+  }
+  .control-label {
+    display: inline-block;
+  }
+}
+
+.alert {
+  &.alert-success {
+    color: #434A54;
+  }
+}
