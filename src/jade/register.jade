@@ -58,7 +58,11 @@ block body
         div.col-md-12
           div.alert.alert-success.collapse(:class="{ 'collapse': !state.done }")
             h4 Success!
-            p Shorten URL is #[a.btn.btn-sm.btn-primary(:href="shortenURL") {{shortenURL}}].
+            p
+              | Shorten URL is&#x20;
+              a.btn.btn-sm.btn-primary(target="_blank", :href="shortenURL")
+                | {{shortenURL}}
+              |.
             p Please check to redirect before you share this link.
     +footer()
       p MIT &copy; 3846masa
