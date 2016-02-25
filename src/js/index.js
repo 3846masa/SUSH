@@ -15,7 +15,7 @@ new SUSH().flow([
   spreadSheet({ sheetUrl: sheetUrl }),
   addList({ list: { '': './register.html' }}),
   analytics({ analyticsId: siteConfig.analyticsId }),
-  redirect({ errorRedirect: './404.html' })
+  redirect({ errorRedirect: './404/' })
 ]).catch((err) => {
   console.error(err.stack || err);
 });
