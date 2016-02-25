@@ -1,3 +1,4 @@
+/* global ga */
 import 'babel-polyfill';
 import 'source-map-support/register';
 import Vue from 'vue';
@@ -10,6 +11,12 @@ import siteConfig from '../../config/site.config.json';
 
 const CustomError = createError('CustomError');
 const CONFIG = siteConfig.register;
+
+// Google Analytics
+window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments); };
+ga.l =+ new Date;
+ga('create', siteConfig.analyticsId, 'auto');
+ga('send', 'pageview');
 
 Vue.use(validator);
 const shortenForm = new Vue({
