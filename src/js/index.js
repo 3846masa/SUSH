@@ -12,7 +12,7 @@ const sheetUrl =
 new SUSH().flow([
   idTrim({ head: 1 }),
   spreadSheet({ sheetUrl: sheetUrl }),
-  addList({ list: { '': '/register.html' }}),
+  addList({ list: { '': './register.html' }}),
   analytics({ analyticsId: 'UA-73958398-1' }),
   redirect({ errorRedirect: '/404.html' })
 ]).catch((err) => {
