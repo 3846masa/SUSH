@@ -5,9 +5,14 @@
   "dependencies": {
     "babel-polyfill": "^6.5.0",
     "bootswatch": "^3.3.6",
+    "config-browserify": "^1.0.5",
+    "create-error": "^0.3.1",
     "font-awesome": "^4.5.0",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^2.2.1",
+    "licensify": "^2.2.0",
+    "ono": "^2.2.1",
+    "source-map-support": "^0.4.0",
+    "transform-loader": "^0.2.3",
     "validator": "^5.0.0",
     "vue": "^1.0.16",
     "vue-validator": "^2.0.0-alpha.21"
@@ -25,6 +30,7 @@
     "fixpack": "^2.3.0",
     "http-server": "^0.9.0",
     "jade": "^1.11.0",
+    "json-loader": "^0.5.4",
     "npm-run-all": "^1.5.1",
     "postcss-url": "^5.1.1",
     "precss": "^1.4.0",
@@ -34,19 +40,19 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
-    "build": "npm-run-all -p build:*",
+    "build": "NODE_ENV='production' npm-run-all -p build:*",
     "build:asset": "ncp src/asset/ dist/asset/",
     "build:css": "postcss -c config/postcss.config.js -d dist/css src/css/*.css",
-    "build:js": "webpack --config config/webpack.config.js",
     "build:jade": "jade -o ./ src/jade/[!_]*",
+    "build:js": "webpack --config config/webpack.config.js",
     "fixpack": "fixpack",
     "serve": "http-server -p 8000",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-run-all -p watch:*",
     "watch:asset": "watch 'npm run build:asset' src/asset/",
     "watch:css": "postcss -w -c config/postcss.config.js -d dist/css src/css/*.css",
-    "watch:js": "webpack --config config/webpack.config.js --progress --colors --watch",
     "watch:jade": "jade -w -o ./ src/jade/[!_]*",
+    "watch:js": "webpack --config config/webpack.config.js --progress --colors --watch",
     "watch:serve": "npm run serve"
   }
 }
