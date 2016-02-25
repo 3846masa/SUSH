@@ -1,0 +1,25 @@
+{
+  "name": "sush-plugin-spreadsheet",
+  "description": "Fetch Google SpreadSheet as URL list.",
+  "version": "0.0.1",
+  "author": "3846masa <3846masahiro+git@gmail.com>",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {},
+  "directories": {
+    "doc": "doc"
+  },
+  "files": [
+    "README.md",
+    "package.json",
+    "lib",
+    "LICENSE"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
