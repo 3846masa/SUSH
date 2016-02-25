@@ -5,9 +5,6 @@ module.exports = {
   cssnext: {
     compress: true
   },
-  'postcss-import': {
-    path: [ 'bower_components' ]
-  },
   'postcss-url': {
     url: 'copy',
     assetsPath: '../asset',

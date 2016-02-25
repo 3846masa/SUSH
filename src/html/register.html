@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🍣 SUSH 🍣 : Simple Url SHortener</title>
+  <link rel="stylesheet" href="dist/css/register.css" />
+</head>
+<body>
+  <div class="outer">
+    <div class="container">
+      <header class="row">
+        <div class="col-sm-12">
+          <img src="dist/asset/sush_logo.svg" />
+        </div>
+      </header>
+      <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-3"></div>
+        <main class="col-xs-10 col-md-6">
+          <div class="row" id="shortenForm">
+            <validator name="validation">
+              <div class="col-md-12 form-group" :class="{ 'has-error': $validation.url.invalid }">
+                <label class="control-label" v-if="$validation.url.invalid">
+                  {{ $validation.url.errors[0].message }}
+                </label>
+                <div class="input-group">
+                  <span class="input-group-addon addon-primary">Original URL</span>
+                  <input type="text" class="form-control" v-model="url.value" v-validate:url="url.validate" />
+                </div>
+              </div>
+              <div class="col-md-12 form-group" :class="{ 'has-error': $validation.id.invalid }">
+                <label class="control-label" v-if="$validation.id.invalid">
+                  {{ $validation.id.errors[0].message }}
+                </label>
+                <div class="input-group">
+                  <span class="input-group-addon" id="urlPrefix">{{urlPrefix}}</span>
+                  <input type="text" class="form-control" placeholder="any_id" v-model="id.value"  v-validate:id="id.validate" />
+                </div>
+              </div>
+            </validator>
+            <div class="col-md-12">
+              <button type="button" class="btn btn-primary btn-block" :disabled="$validation.invalid">
+                Shorten
+              </button>
+            </div>
+            <div class="col-md-12">
+              <div class="alert alert-success collapse" id="alert">
+                <h4>Success!</h4>
+                <p>Shorten URL is <a href="#" class="btn btn-primary" id="shortenURL"></a>.</p>
+                <p>Please check to redirect before you share this link.</p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <div class="col-xs-1 col-sm-1 col-md-3"></div>
+      </div>
+      <footer class="row">
+        <div class="col-xs-12">
+          MIT &copy; 3846masa
+        </div>
+        <div class="col-xs-12">
+          <a href="https://github.com/3846masa/SUSH" class="btn btn-default">
+            <i class="fa fa-github-alt"></i> Github
+          </a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="dist/js/register.js" async></script>
+</body>
+</html>

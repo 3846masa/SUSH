@@ -1,0 +1,69 @@
+extends _base
+
+mixin container()
+  div.outer
+    div.container
+      block
+
+mixin header()
+  header.row
+    div.col-sm-12
+      block
+
+mixin main()
+  div.row
+    div.col-xs-1.col-sm-1.col-md-3
+    main.col-xs-10.col-md-6
+      block
+    div.col-xs-1.col-sm-1.col-md-3
+
+mixin footer()
+  footer.row
+    div.col-sm-12
+      block
+
+mixin formInput(name, caption)
+  div.col-md-12.form-group(
+    :class="{ 'has-error': $validation.#{name}.invalid }"
+  )
+    label.control-label(v-if="$validation.#{name}.invalid")
+      | {{ $validation.#{name}.errors[0].message }}
+    div.input-group
+      span.input-group-addon.addon-primary #{caption}
+      input.form-control(
+        type="text", :disabled="state.submitted", field="#{name}"
+        v-model="#{name}", v-validate="validate.#{name}"
+      )&attributes(attributes)
+
+mixin submitButton()
+  button.btn.btn-primary.btn-block(
+   type="button", :disabled="$validation.invalid || state.submitted",
+   @click.prevent="onSubmit"
+  ) Shorten
+
+block head
+  link(rel="stylesheet", href="dist/css/register.css")
+
+block body
+  +container()
+    +header()
+      img(src="dist/asset/sush_logo.svg")
+    +main()
+      div#shortenForm.row
+        validator(name="validation")
+          +formInput("url", "Original URL")
+          +formInput("id", "{{ urlPrefix }}")(debounce="500")
+        div.col-md-12
+          +submitButton()
+        div.col-md-12
+          div.alert.alert-success(:class="{ 'collapse': !state.done }")
+            h4 Success!
+            p Shorten URL is #[a.btn.btn-primary(:href="shortenURL")].
+            p Please check to redirect before you share this link.
+    +footer()
+      p MIT &copy; 3846masa
+      p: a.btn.btn-default(href="https://github.com/3846masa/SUSH")
+        | #[i.fa.fa-github-alt] Github
+
+block script
+  script(src="dist/js/register.js", async)

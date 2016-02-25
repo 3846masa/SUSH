@@ -4,9 +4,13 @@
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "dependencies": {
     "babel-polyfill": "^6.5.0",
+    "bootswatch": "^3.3.6",
+    "font-awesome": "^4.5.0",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^2.2.1",
-    "validator": "^5.0.0"
+    "validator": "^5.0.0",
+    "vue": "^1.0.16",
+    "vue-validator": "^2.0.0-alpha.21"
   },
   "devDependencies": {
     "babel-core": "^6.5.2",
@@ -20,6 +24,7 @@
     "eslint": "^2.2.0",
     "fixpack": "^2.3.0",
     "http-server": "^0.9.0",
+    "jade": "^1.11.0",
     "npm-run-all": "^1.5.1",
     "postcss-url": "^5.1.1",
     "precss": "^1.4.0",
@@ -29,19 +34,19 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
-    "bower": "bower --save",
     "build": "npm-run-all -p build:*",
     "build:asset": "ncp src/asset/ dist/asset/",
     "build:css": "postcss -c config/postcss.config.js -d dist/css src/css/*.css",
     "build:js": "webpack --config config/webpack.config.js",
+    "build:jade": "jade -o ./ src/jade/[!_]*",
     "fixpack": "fixpack",
-    "postinstall": "bower install",
     "serve": "http-server -p 8000",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-run-all -p watch:*",
     "watch:asset": "watch 'npm run build:asset' src/asset/",
     "watch:css": "postcss -w -c config/postcss.config.js -d dist/css src/css/*.css",
     "watch:js": "webpack --config config/webpack.config.js --progress --colors --watch",
+    "watch:jade": "jade -w -o ./ src/jade/[!_]*",
     "watch:serve": "npm run serve"
   }
 }

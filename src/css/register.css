@@ -40,22 +40,3 @@ main {
 footer {
   text-align: center;
 }
-
-.control-label {
-  display: none;
-}
-
-.has-error {
-  .input-group-addon {
-    color: #fff;
-  }
-  .control-label {
-    display: inline-block;
-  }
-}
-
-.alert {
-  &.alert-success {
-    color: #434A54;
-  }
-}
