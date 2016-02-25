@@ -22,7 +22,7 @@ Github-Pages上で使えば，独自ドメインの短縮URLも作れます．
 
 ```javascript
 import SUSH from 'sush';
-import keyTrim from 'sush-plugin-key-trim';
+import idTrim from 'sush-plugin-id-trim';
 import spreadSheet from 'sush-plugin-spreadsheet';
 import analytics from 'sush-plugin-google-analytics';
 import redirect from 'sush-plugin-redirect';
@@ -30,7 +30,7 @@ import redirect from 'sush-plugin-redirect';
 const sheetUrl = 'https://docs.google.com/spreadsheets/d/XXXXXX_XXXXXX/edit#gid=0';
 
 new SUSH().flow([
-  keyTrim({ head: 1 }),
+  idTrim({ head: 1 }),
   spreadSheet({ sheetUrl: sheetUrl }),
   analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
   redirect({ errorRedirect: '/404.html' })
@@ -43,11 +43,11 @@ new SUSH().flow([
 
 - [sush](./packages/sush)
   - コアとなるモジュールです
-- [sush-plugin-key-trim](./packages/sush-plugin-key-trim)
-  - keyの前後から指定した数，文字を取り除きます
+- [sush-plugin-id-trim](./packages/sush-plugin-id-trim)
+  - idの前後から指定した数，文字を取り除きます
   - ``/abc``を``abc``のように変えられます
 - [sush-plugin-redirect](./packages/sush-plugin-redirect)
-  - list内にあるkeyに対応するURLにリダイレクトします
+  - list内にあるidに対応するURLにリダイレクトします
   - ``errorRedirect``を指定すると404ページも設定できます
 - [sush-plugin-spreadsheet](./packages/sush-plugin-spreadsheet)
   - Google SpreadSheetの中身を短縮URLのlistに追加します  

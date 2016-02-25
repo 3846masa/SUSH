@@ -8,7 +8,7 @@ Simple Url SHortener
 
 This is a URL shortener working on browser.
 
-When you access ``http://example.com/#/google``, SUSH gets shorten-key from hash (``#/google``), and redirect URL.
+When you access ``http://example.com/#/google``, SUSH gets shorten-ID from hash (``#/google``), and redirect URL.
 
 Because of working on browser, you can provide URL shortener via Github-Pages or any HTTP server.
 
@@ -18,7 +18,7 @@ Because of working on browser, you can provide URL shortener via Github-Pages or
 
 ```javascript
 import SUSH from 'sush';
-import keyTrim from 'sush-plugin-key-trim';
+import idTrim from 'sush-plugin-id-trim';
 import spreadSheet from 'sush-plugin-spreadsheet';
 import analytics from 'sush-plugin-google-analytics';
 import redirect from 'sush-plugin-redirect';
@@ -26,7 +26,7 @@ import redirect from 'sush-plugin-redirect';
 const sheetUrl = 'https://docs.google.com/spreadsheets/d/XXXXXX_XXXXXX/edit#gid=0';
 
 new SUSH().flow([
-  keyTrim({ head: 1 }),
+  idTrim({ head: 1 }),
   spreadSheet({ sheetUrl: sheetUrl }),
   analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
   redirect({ errorRedirect: '/404.html' })
@@ -39,10 +39,10 @@ new SUSH().flow([
 
 - [sush](./packages/sush)
   - Core module
-- [sush-plugin-key-trim](./packages/sush-plugin-key-trim)
-  - Trim heads and/or tails from key
+- [sush-plugin-id-trim](./packages/sush-plugin-id-trim)
+  - Trim heads and/or tails from id
 - [sush-plugin-redirect](./packages/sush-plugin-redirect)
-  - Redirect URL which is pair of key
+  - Redirect URL which is pair of id
 - [sush-plugin-spreadsheet](./packages/sush-plugin-spreadsheet)
   - Fetch Google SpreadSheet as URL list
 - [sush-plugin-add-object](./packages/sush-plugin-add-object)
