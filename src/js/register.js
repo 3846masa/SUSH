@@ -19,7 +19,7 @@ const shortenForm = new Vue({
       submitted: false,
       done: false
     },
-    urlPrefix: `${location.host}/#/`,
+    urlPrefix: location.href.split('/').slice(2, -1).join('/') + '/#/',
     url: '',
     id: '',
     validate: {
