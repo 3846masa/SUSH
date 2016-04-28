@@ -10,7 +10,7 @@ import siteConfig from '../../config/site.config.json';
 const sheetUrl =
   'https://docs.google.com/spreadsheets/d/1RyoXWAqO4MQykn2NHNvBKgmofikO_1r9ErE4KUc0TCA/edit#gid=799771202';
 
-new SUSH().flow([
+new SUSH({ mode: 'lower' }).flow([
   idTrim({ head: 1 }),
   spreadSheet({ sheetUrl: sheetUrl }),
   addList({ list: { '': './register.html' }}),
