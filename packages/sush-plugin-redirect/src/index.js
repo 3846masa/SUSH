@@ -1,6 +1,6 @@
 function SUSHRedirect({ errorRedirect = null }) {
   return async function ({ id, list }) {
-    const redirectUrl = list[id] || errorRedirect;
+    const redirectUrl = ( list.has(id) ) ? list.get(id) : errorRedirect;
 
     if (!redirectUrl) {
       document.title = '404 Not Found';

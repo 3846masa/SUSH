@@ -1,6 +1,9 @@
 function SUSHAddObject({ list : addList = {} }) {
   return async function ({ id, list }) {
-    return { id: id, list: Object.assign(list, addList) };
+    Object.keys(addList).forEach(( key ) => {
+      list.set(key, addList[ key ]);
+    });
+    return { id: id, list: list };
   };
 }
 

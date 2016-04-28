@@ -34,22 +34,10 @@ function SUSHSpreadSheet({ sheetUrl }) {
     }
 
     const entries = (await sheetDataRes.json()).feed.entry.map(parseSheetEntry);
-    const sheetList = {};
-    entries.forEach((entry) => {
-      if ('undefined' === typeof sheetList[entry.id]) {
-        sheetList[entry.id] = entry;
-        return;
-      }
-      const diff =
-        Date.parse(sheetList[entry.id].timestamp) - Date.parse(entry.timestamp);
-      if (diff > 0) {
-        sheetList[entry.id] = entry;
-      }
+    entries.sort(( a, b ) => Date.parse(b.timestamp) - Date.parse(a.timestamp));
+    entries.forEach(( entry ) => {
+      list.set(entry.id, entry.url);
     });
-    Object.keys(sheetList).forEach((id) => {
-      sheetList[id] = sheetList[id].url;
-    });
-    Object.assign(list, sheetList);
 
     return { id: id, list: list };
   };

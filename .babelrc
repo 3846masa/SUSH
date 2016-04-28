@@ -1,8 +1,15 @@
 {
-  "presets": ["es2015"],
+  "presets": [ "es2015" ],
   "plugins": [
+    "transform-runtime",
     "syntax-async-functions",
     "transform-async-to-generator",
-    "add-module-exports"
+    "add-module-exports",
+    [
+      "transform-builtin-extend",
+      {
+        "globals": [ "Map" ]
+      }
+    ]
   ]
 }
