@@ -1,0 +1,21 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "safari >= 7"]
+      },
+      "exclude": ["transform-regenerator"],
+      "modules": false,
+      "loose": true
+    }]
+  ],
+  "plugins": [
+    "add-module-exports",
+    [
+      "transform-builtin-extend",
+      {
+        "globals": [ "Map" ]
+      }
+    ]
+  ]
+}
