@@ -1,6 +1,6 @@
 const config = require('./webpack.config.js');
 
-config.rules.push(...[
+config.module.rules.push(...[
   {
     test: /\.ts$/,
     loader: 'istanbul-instrumenter-loader',
