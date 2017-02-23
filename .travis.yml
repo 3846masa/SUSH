@@ -3,10 +3,20 @@ node_js:
   - "6"
 cache:
   yarn: true
+dist: trusty
+sudo: false
 
-before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
+addons:
+  apt:
+    packages:
+      - google-chrome-stable
+
+env:
+  global:
+    - DISPLAY=:99.0
+    - CHROME_BIN=/usr/bin/google-chrome
+
+before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
