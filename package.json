@@ -49,6 +49,7 @@
     "doc": "lerna exec -- typedoc --out doc/ --mode file --target ES2015 --theme ../../typedoc_templates src/index.ts",
     "init": "npm-run-all clean init:config",
     "init:config": "lerna exec -- cpx ../../tsconfig.json .",
+    "prerelease": "npm run build",
     "release": "npm-run-all release:pre release:perform release:post",
     "release:pre": "lerna-semantic-release pre",
     "release:perform": "lerna-semantic-release perform",
