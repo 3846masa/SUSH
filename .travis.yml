@@ -17,8 +17,22 @@ env:
     - CHROME_BIN=/usr/bin/google-chrome
 
 before_script:
+  # For Git
+  - git config --global user.email "3846masahiro+git@gmail.com"
+  - git config --global user.name "3846masa"
+  - git config --global push.default simple
+  - git config credential.helper store
+  - echo "https://${RELEASE_GH_USERNAME}:${RELEASE_GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git" > ~/.git-credentials
+
+  # For npm
+  - npm config set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" -q
+
+  # For Chrome
   - sh -e /etc/init.d/xvfb start
 
 script:
   - yarn run test
   - yarn run report
+
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "develop" ]; then yarn run release; fi

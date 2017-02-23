@@ -1,15 +1,20 @@
 {
   "name": "sush",
-  "version": "0.0.0",
   "description": "Core module for SUSH",
+  "version": "0.0.0",
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "config": {
     "library_name": "SUSH"
   },
+  "files": [
+    "dist",
+    "src/**/*.d.ts"
+  ],
   "keywords": [
     "SUSH",
     "url-shortner"
   ],
   "license": "MIT",
-  "main": "dist/index.js"
+  "main": "dist/index.js",
+  "types": "src/index.d.ts"
 }

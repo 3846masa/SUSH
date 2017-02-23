@@ -25,7 +25,7 @@ module.exports = function (config) {
     },
 
     // webpack config
-    webpack: Object.assign(require(path.join(__dirname, 'webpack.config.js')), {
+    webpack: Object.assign(require(path.join(__dirname, 'webpack.config.test.js')), {
       devtool: 'inline-source-map',
     }),
 

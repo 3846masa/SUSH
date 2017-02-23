@@ -78,3 +78,4 @@ packages/**/tsconfig.json
 coverage
 dist
 doc
+src/**/*.d.ts

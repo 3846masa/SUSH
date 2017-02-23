@@ -17,7 +17,7 @@ export interface StockConfig {
 /**
  * `Stock` is key/value map for SUSH.
  */
-export class Stock extends Map<string, string> {
+export default class Stock extends Map<string, string> {
   /** See `StockConfig`. */
   public mode: string;
 
@@ -62,5 +62,3 @@ export class Stock extends Map<string, string> {
     }
   }
 }
-
-export default Stock;

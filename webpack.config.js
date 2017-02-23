@@ -4,10 +4,10 @@ const BabiliPlugin = require("babili-webpack-plugin");
 const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin;
 
 module.exports = {
-  entry: './src/index',
+  entry: './src/entry',
   output: {
-    path: './dist',
-    filename: 'index.js',
+    path: '',
+    filename: './dist/index.js',
     library: readPkg.sync('.')['config']['library_name'],
     libraryTarget: 'umd',
   },
@@ -26,18 +26,6 @@ module.exports = {
               inlineSourceMap: true,
             },
           },
-        ],
-      },
-      {
-        test: /\.ts$/,
-        loader: 'istanbul-instrumenter-loader',
-        enforce: 'post',
-        options: {
-          esModules: true
-        },
-        exclude: [
-          'node_modules',
-          /\.spec\.ts$/
         ],
       },
     ],

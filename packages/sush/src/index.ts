@@ -47,7 +47,7 @@ export type SUSHTask =
  * });
  * ```
  */
-export class SUSH {
+export default class SUSH {
   /** `stock` is key/value map. */
   public stock: Stock;
 
@@ -69,5 +69,3 @@ export class SUSH {
     );
   }
 }
-
-export default SUSH;
