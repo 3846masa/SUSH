@@ -25,7 +25,6 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "lerna": "2.0.0-beta.37",
-    "lerna-run": "^0.0.2",
     "lerna-semantic-release": "^9.0.7",
     "mocha": "^3.2.0",
     "npm-run-all": "^4.0.2",
@@ -44,19 +43,19 @@
   },
   "scripts": {
     "prebuild": "npm run init",
-    "build": "lerna-run webpack --config ../../webpack.config.js",
+    "build": "lerna exec -- webpack --config ../../webpack.config.js",
     "postbuild": "npm run doc",
-    "clean": "lerna-run rimraf tsconfig.json src/**/*.d.ts dist doc coverage",
-    "doc": "lerna-run typedoc --out doc/ --mode file --target ES2015 --theme ../../typedoc_templates src/index.ts",
+    "clean": "lerna exec -- rimraf tsconfig.json src/**/*.d.ts dist doc coverage",
+    "doc": "lerna exec -- typedoc --out doc/ --mode file --target ES2015 --theme ../../typedoc_templates src/index.ts",
     "init": "npm-run-all clean init:config",
-    "init:config": "lerna-run cpx ../../tsconfig.json .",
+    "init:config": "lerna exec -- cpx ../../tsconfig.json .",
     "release": "npm-run-all release:pre release:perform release:post",
     "release:pre": "lerna-semantic-release pre",
     "release:perform": "lerna-semantic-release perform",
     "release:post": "lerna-semantic-release post",
-    "report": "lerna-run codecov",
+    "report": "lerna exec -- codecov",
     "pretest": "npm run init",
-    "test": "lerna-run karma start ../../karma.conf.js"
+    "test": "lerna exec -- karma start ../../karma.conf.js"
   },
   "config": {
     "commitizen": {
