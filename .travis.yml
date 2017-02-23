@@ -21,8 +21,9 @@ before_script:
   - git config --global user.email "3846masahiro+git@gmail.com"
   - git config --global user.name "3846masa"
   - git config --global push.default simple
-  - git config credential.helper store
-  - echo "https://${RELEASE_GH_USERNAME}:${RELEASE_GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git" > ~/.git-credentials
+  - git remote set-url origin "https://${RELEASE_GH_USERNAME}:${RELEASE_GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+  - git fetch origin $TRAVIS_BRANCH
+  - git checkout $TRAVIS_BRANCH
 
   # For npm
   - npm config set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" -q
