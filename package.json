@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@3846masa/typedoc-default-themes": "https://github.com/3846masa/typedoc-default-themes.git",
     "@angular/compiler": "^2.4.8",
     "@angular/core": "^2.4.8",
     "@types/mocha": "^2.2.39",
@@ -46,7 +47,7 @@
     "build": "lerna exec -- webpack --config ../../webpack.config.js",
     "postbuild": "npm run doc",
     "clean": "lerna exec -- rimraf tsconfig.json src/**/*.d.ts dist doc coverage",
-    "doc": "lerna exec -- typedoc --out doc/ --mode file --target ES2015 --theme ../../typedoc_templates src/index.ts",
+    "doc": "lerna exec -- typedoc --out doc/ --mode file --target ES2015 --theme ../../node_modules/@3846masa/typedoc-default-themes/bin/minimal src/index.ts",
     "init": "npm-run-all clean init:config",
     "init:config": "lerna exec -- cpx ../../tsconfig.json .",
     "prerelease": "npm run build",

@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@3846masa/typedoc-default-themes@https://github.com/3846masa/typedoc-default-themes.git":
+  version "0.4.2"
+  resolved "https://github.com/3846masa/typedoc-default-themes.git#935417e0ca7347e0179280d53654985f5348e4e4"
+
 "@angular/compiler@^2.4.8":
   version "2.4.8"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.4.8.tgz#fa788fc8bed9f322b040af2b9a06a70991390e23"
