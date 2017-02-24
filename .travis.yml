@@ -34,6 +34,9 @@ before_script:
   - npm config set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
   - npm whoami
 
+  # Lerna bootstrap
+  - yarn run bootstrap
+
   # For Chrome
   - sh -e /etc/init.d/xvfb start
 
