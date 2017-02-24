@@ -31,8 +31,8 @@ before_script:
 
   # Update npm
   - npm i -g npm
-  - npm config set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" -q
-  - npm prune
+  - npm config set registry "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+  - npm whoami
 
   # For Chrome
   - sh -e /etc/init.d/xvfb start
