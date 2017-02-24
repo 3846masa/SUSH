@@ -45,7 +45,9 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "prebuild": "npm run init",
-    "build": "lerna exec -- webpack --config ../../webpack.config.js",
+    "build": "npm-run-all build:sush build:plugins",
+    "build:sush": "lerna exec --scope sush -- webpack --config ../../webpack.config.js",
+    "build:plugins": "lerna exec --scope sush-plugin-* -- webpack --config ../../webpack.config.js",
     "postbuild": "npm run doc",
     "clean": "lerna exec -- rimraf tsconfig.json src/**/*.d.ts dist doc coverage",
     "doc": "lerna exec -- typedoc --out doc/ --mode file --target ES2015 --theme ../../node_modules/@3846masa/typedoc-default-themes/bin/minimal src/index.ts",
@@ -57,7 +59,7 @@
     "release:perform": "lerna-semantic-release perform",
     "release:post": "lerna-semantic-release post",
     "report": "lerna exec -- codecov",
-    "pretest": "npm run init",
+    "pretest": "npm-run-all init build:sush",
     "test": "lerna exec -- karma start ../../karma.conf.js"
   },
   "config": {
