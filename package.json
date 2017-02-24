@@ -50,7 +50,7 @@
     "init": "npm-run-all clean init:config",
     "init:config": "lerna exec -- cpx ../../tsconfig.json .",
     "prerelease": "npm run build",
-    "release": "npm-run-all release:pre release:perform release:post",
+    "release": "npm run release:pre && npm run release:perform && npm run release:post",
     "release:pre": "lerna-semantic-release pre",
     "release:perform": "lerna-semantic-release perform",
     "release:post": "lerna-semantic-release post",
