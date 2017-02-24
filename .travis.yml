@@ -1,3 +1,7 @@
+branches:
+  except:
+    - '/^v\d+\.\d+\.\d+$/'
+
 language: node_js
 node_js:
   - "6"
@@ -24,6 +28,11 @@ before_script:
   - git remote set-url origin "https://${GH_USERNAME}:${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
   - git fetch origin $TRAVIS_BRANCH
   - git checkout $TRAVIS_BRANCH
+
+  # Update npm
+  - npm i -g npm
+  - npm config set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" -q
+  - npm prune
 
   # For Chrome
   - sh -e /etc/init.d/xvfb start
