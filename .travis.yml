@@ -31,7 +31,7 @@ before_script:
 
   # Update npm
   - npm i -g npm
-  - npm config set registry "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+  - npm config set "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
   - npm whoami
 
   # For Chrome
