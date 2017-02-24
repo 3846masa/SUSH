@@ -60,7 +60,7 @@
     "release:post": "lerna-semantic-release post",
     "report": "lerna exec -- codecov",
     "pretest": "npm-run-all init build:sush",
-    "test": "lerna exec -- karma start ../../karma.conf.js"
+    "test": "lerna exec --concurrency 1 -- karma start ../../karma.conf.js"
   },
   "config": {
     "commitizen": {
