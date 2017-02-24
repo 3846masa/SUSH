@@ -1,6 +1,9 @@
 # sush
 
+[![NPM](https://nodei.co/npm/sush.png?compact=true)](https://nodei.co/npm/sush/)
+
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![npm](https://img.shields.io/npm/v/sush.svg?style=flat-square)](https://www.npmjs.com/package/sush)
 
 > Core module for SUSH
 
