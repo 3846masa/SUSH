@@ -50,6 +50,7 @@ before_script:
 script:
   - yarn run test
   - yarn run report
+  - yarn run build
 
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "develop" ]; then npm run release; fi
