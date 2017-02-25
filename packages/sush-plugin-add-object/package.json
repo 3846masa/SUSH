@@ -1,0 +1,29 @@
+{
+  "name": "sush-plugin-add-object",
+  "description": "SUSH Plugin for adding object to URL list.",
+  "version": "0.0.1",
+  "author": "3846masa <3846masahiro+git@gmail.com>",
+  "config": {
+    "library_name": [
+      "SUSH",
+      "$addObject"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "sush": "^1.0.0"
+  },
+  "files": [
+    "dist",
+    "src/**/*.d.ts"
+  ],
+  "keywords": [
+    "SUSH",
+    "SUSH-plugin",
+    "url-shortner"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "https://github.com/3846masa/SUSH/tree/develop/packages/sush-plugin-add-object",
+  "types": "src/index.d.ts"
+}
