@@ -18,6 +18,6 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
-  "repository": "https://github.com/3846masa/SUSH/tree/develop/packages/sush",
+  "repository": "https://github.com/3846masa/SUSH/tree/master/packages/sush",
   "types": "src/index.d.ts"
 }
