@@ -1,0 +1,29 @@
+{
+  "name": "sush-plugin-trim-id",
+  "description": "SUSH Plugin for trimming head or tail from ID",
+  "version": "0.0.1",
+  "author": "3846masa <3846masahiro+git@gmail.com>",
+  "config": {
+    "library_name": [
+      "SUSH",
+      "$trimId"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "sush": "^0.0.0"
+  },
+  "files": [
+    "dist",
+    "src/**/*.d.ts"
+  ],
+  "keywords": [
+    "SUSH",
+    "SUSH-plugin",
+    "url-shortner"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "https://github.com/3846masa/SUSH/tree/develop/packages/sush-plugin-trim-id",
+  "types": "src/index.d.ts"
+}
