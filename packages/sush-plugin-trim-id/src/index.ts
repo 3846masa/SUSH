@@ -1,4 +1,4 @@
-import { SUSHInfo } from 'SUSH';
+import { SUSHInfo } from 'sush';
 
 export interface TrimIdParams {
   head?: number;
