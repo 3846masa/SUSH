@@ -1,7 +1,7 @@
 import { SUSHInfo } from 'sush';
 
 /**
- * `SUSHPluginTrimId` trims head or tail from ID.
+ * `SUSHPluginRedirect` redirects to URL associated with id.
  */
 function SUSHPluginRedirect (
   { fallback }: { fallback?: string } = {}
