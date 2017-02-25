@@ -10,6 +10,9 @@
     }],
     "directive-selector-prefix": [true, "SUSH"],
     "component-selector-prefix": [true, "SUSH"],
-    "pipe-naming": [true, "camelCase", "SUSH"]
+    "pipe-naming": [true, "camelCase", "SUSH"],
+
+    // Own Rules
+    "only-arrow-functions": [true, "allow-declarations"]
   }
 }
