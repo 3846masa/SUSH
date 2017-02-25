@@ -1,4 +1,4 @@
-# SUSH | Server-less Url SHortener
+# SUSH | Simple Url SHortener
 
 ![SUSH](./img/logo.png)
 
@@ -7,13 +7,13 @@
 [![codecov](https://img.shields.io/codecov/c/github/3846masa/SUSH/develop.svg?style=flat-square)](https://codecov.io/gh/3846masa/SUSH)
 
 
-> 🍣 Server-less URL shortener working on browser
+> 🍣 Simple Url SHortener working on browser
 
-This is server-less URL shortener.
+This is a URL shortener working on browser.
 
 When you access ``http://example.com/#/google``, SUSH gets shorten-ID from hash (``/google``), and redirect URL.
 
-You can provide URL shortener via GitHub Pages or any HTTP server, because it is server-less.
+You can provide URL shortener via GitHub Pages or any HTTP server, because it is able to work on browser.
 
 ## Table of Contents
 <!-- TOC depthFrom:2 depthTo:2 updateOnSave:false -->
