@@ -33,6 +33,7 @@
     "read-pkg": "^2.0.0",
     "rimraf": "^2.6.0",
     "rxjs": "^5.0.1",
+    "testdouble": "^1.11.1",
     "ts-loader": "^2.0.1",
     "tslint": "^4.4.2",
     "tslint-config-valorsoft": "^1.2.0",
