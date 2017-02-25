@@ -11,6 +11,16 @@ describe('SUSHPluginAddObject', () => {
     sush = new SUSH();
   });
 
+  it('dose nothing if argument is none', (done) => {
+    sush.flow([
+      SUSHPluginAddObject()
+    ])
+    .then(() => {
+      done();
+    })
+    .catch((err) => done(err));
+  });
+
   it('adds urls in Object', (done) => {
     const expectedObj: {[key: string]: string} = {
       example: 'https://example.com',
