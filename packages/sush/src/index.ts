@@ -50,19 +50,21 @@ export type SUSHTask =
 export default class SUSH {
   /** `stock` is key/value map. */
   public stock: Stock;
+  private _location: Location;
 
   /**
    * @param config See `StockConfig`.
    */
   public constructor(config: StockConfig = { mode: 'default' }) {
     this.stock = new Stock(config);
+    this._location = location;
   }
 
   /**
    * @param tasks Array of `SUSHTask`.
    */
   public flow(tasks: SUSHTask[]): Promise<SUSHInfo> {
-    const hash = location.hash.substr(1);
+    const hash = this._location.hash.substr(1);
     return tasks.reduce(
       (promise: Promise<SUSHInfo>, task: SUSHTask) => promise.then(task),
       Promise.resolve({ id: hash, stock: this.stock })
