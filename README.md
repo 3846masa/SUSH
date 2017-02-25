@@ -1,4 +1,4 @@
-# SUSH | Simple Url SHortener
+# SUSH | Simple URL Shortener
 
 ![SUSH](./img/logo.png)
 
@@ -7,9 +7,9 @@
 [![codecov](https://img.shields.io/codecov/c/github/3846masa/SUSH/develop.svg?style=flat-square)](https://codecov.io/gh/3846masa/SUSH)
 
 
-> 🍣 Simple Url SHortener working on browser
+> 🍣 Simple URL Shortener which can be provided from a static HTML server.
 
-This is a URL shortener working on browser.
+This is the URL shortener which can be provided from a static HTML server.
 
 When you access ``http://example.com/#/google``, SUSH gets shorten-ID from hash (``/google``), and redirect URL.
 
