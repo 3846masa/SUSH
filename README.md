@@ -103,7 +103,7 @@ sush.flow([
 - [sush-plugin-trim-id](./packages/sush-plugin-trim-id)
   - Trim head or tail from ID
 - [sush-plugin-redirect](./packages/sush-plugin-redirect)
-  - Redirect URL which is pair of ID
+  - Redirect to URL associated with id
 - [sush-plugin-spreadsheet](./packages/sush-plugin-spreadsheet)
   - Fetch Google SpreadSheet as URL list
 - [sush-plugin-add-object](./packages/sush-plugin-add-object)
