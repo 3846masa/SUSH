@@ -51,7 +51,7 @@
     "postbuild": "npm run doc",
     "clean": "lerna exec -- rimraf tsconfig.json src/**/*.d.ts dist doc coverage",
     "doc": "lerna exec -- typedoc --out doc/ --mode file --target ES2015 --theme ../../node_modules/@3846masa/typedoc-default-themes/bin/minimal src/index.ts",
-    "init": "npm-run-all clean init:config",
+    "init": "npm-run-all clean init:config bootstrap",
     "init:config": "lerna exec -- cpx ../../tsconfig.json .",
     "prerelease": "npm run build",
     "release": "npm run release:pre && npm run release:perform && npm run release:post",
