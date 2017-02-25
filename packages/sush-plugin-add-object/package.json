@@ -1,7 +1,7 @@
 {
   "name": "sush-plugin-add-object",
   "description": "SUSH Plugin for adding object to URL list.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "config": {
     "library_name": [
