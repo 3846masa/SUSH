@@ -10,6 +10,13 @@ cache:
 dist: trusty
 sudo: false
 
+notifications:
+  email: false
+  slack:
+    on_success: always
+    on_failure: always
+    secure: qlNfmz6hBOGFXUvoEAC5lBRly26XGeYe9gBln9RtLGWDY77LzPVCHZu5Ts61Yc3I4UGAHcO4YeaX3rNITclVf/gqV5OOx6JqGykWhfVDVpT1aRupxBmKBVHeeKki9Zu8PDbmpCIVRW6C33BfkI+baeq2nOBEfeYAwFthG1zFZpfjAoVdW2UPn0iww4JhUO74qPtmt7p7+F7cIyTkkfYYajFbBy1/2dlxyNDWJiF9mBrQNs7kiIV8qyM9l/JKYoYaapvJfFCkFhfCI0aAzWoYYt6RlgxY/0yM9zIkOM4R2GPEZEMZVpFfQWFEp4vOOu5YZu0OH1qXbLcLmuT3A0ltx+K7Y1aFsayvl3OkaTsU2zj6kqFaw4o2eOdhcFdSHCOUA0/vRwmqoekAgukg/WRJWORm8bCmJ4Hmd7lscTm7TdU8A6t/hAX85szimHleJNOAza0glZwhlbBcE0/F8Uy19z8HdmaNUoQSg5vh0lBebezFVdMs4BZr7Z1DK4kd8NPrNGhCb56etllWQIKhFRJRHIs+XfeS4cs464JU6z5z023YltQAEoLtggVnGTQK0hAFKZtkRCAtu5bjjPd/o4om+V1ke/q35wLhkaINceY9lBEfusE6o9enXnS9SyxWSgV2y3FofoTwJiOdv8POnyPk6+fN+6EpReircc4minbg2Ng=
+
 addons:
   apt:
     packages:
