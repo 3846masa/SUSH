@@ -59,10 +59,10 @@ npm install --save sush [...SUSH_PLUGINS]
 
     var sush = new SUSH();
     sush.flow([
-      trimId({ head: 1 }),
-      spreadSheet({ sheetUrl: sheetUrl }),
-      analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
-      redirect({ errorRedirect: '/404.html' })
+      SUSH.$trimId({ head: 1 }),
+      SUSH.$spreadSheet({ sheetUrl: sheetUrl }),
+      SUSH.$analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
+      SUSH.$redirect({ fallback: '/404.html' })
     ]).catch((err) => {
       console.error(err.stack || err);
     });
@@ -88,7 +88,7 @@ sush.flow([
   trimId({ head: 1 }),
   spreadSheet({ sheetUrl: sheetUrl }),
   analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
-  redirect({ errorRedirect: '/404.html' })
+  redirect({ fallback: '/404.html' })
 ]).catch((err) => {
   console.error(err.stack || err);
 });
