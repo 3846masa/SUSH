@@ -64,6 +64,8 @@ import googleAnalytics from 'sush-plugin-google-analytics';
 import addObject from 'sush-plugin-add-object';
 import redirect from 'sush-plugin-redirect';
 
+const sush = new SUSH();
+
 sush.flow([
   addObject({ example: 'http://example.com' }),
   // Exec ga('send', 'pageview'); with URL hash string.

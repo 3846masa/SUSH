@@ -48,7 +48,7 @@ npm install --save sush [...SUSH_PLUGINS]
     var sush = new SUSH();
     sush.flow([
       SUSH.$trimId({ head: 1 }),
-      SUSH.$spreadSheet({ sheetUrl: sheetUrl }),
+      SUSH.$spreadsheet({ sheetUrl: sheetUrl }),
       SUSH.$analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
       SUSH.$redirect({ fallback: '/404.html' })
     ]).catch((err) => {
@@ -64,7 +64,7 @@ npm install --save sush [...SUSH_PLUGINS]
 ```js
 import SUSH from 'sush';
 import trimId from 'sush-plugin-trim-id';
-import spreadSheet from 'sush-plugin-spreadsheet';
+import spreadsheet from 'sush-plugin-spreadsheet';
 import analytics from 'sush-plugin-google-analytics';
 import redirect from 'sush-plugin-redirect';
 
@@ -74,7 +74,7 @@ const sheetUrl =
 const sush = new SUSH();
 sush.flow([
   trimId({ head: 1 }),
-  spreadSheet({ sheetUrl: sheetUrl }),
+  spreadsheet({ sheetUrl: sheetUrl }),
   analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
   redirect({ fallback: '/404.html' })
 ]).catch((err) => {

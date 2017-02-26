@@ -61,6 +61,8 @@ npm install --save sush sush-plugin-redirect [...SUSH_PLUGINS]
 import SUSH from 'sush';
 import redirect from 'sush-plugin-redirect';
 
+const sush = new SUSH();
+
 sush.flow([
   redirect({ fallback: './404.html' })
 ])

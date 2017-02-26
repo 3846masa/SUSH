@@ -6,7 +6,6 @@
 [![Build Status](http://img.shields.io/travis/3846masa/SUSH/develop.svg?style=flat-square)](https://travis-ci.org/3846masa/SUSH)
 [![codecov](https://img.shields.io/codecov/c/github/3846masa/SUSH/develop.svg?style=flat-square)](https://codecov.io/gh/3846masa/SUSH)
 
-
 > 🍣 Simple URL Shortener which can be provided from a static HTML server.
 
 This is the URL shortener which can be provided from a static HTML server.
@@ -60,7 +59,7 @@ npm install --save sush [...SUSH_PLUGINS]
     var sush = new SUSH();
     sush.flow([
       SUSH.$trimId({ head: 1 }),
-      SUSH.$spreadSheet({ sheetUrl: sheetUrl }),
+      SUSH.$spreadsheet({ sheetUrl: sheetUrl }),
       SUSH.$analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
       SUSH.$redirect({ fallback: '/404.html' })
     ]).catch((err) => {
@@ -86,7 +85,7 @@ const sheetUrl =
 const sush = new SUSH();
 sush.flow([
   trimId({ head: 1 }),
-  spreadSheet({ sheetUrl: sheetUrl }),
+  spreadsheet({ sheetUrl: sheetUrl }),
   analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
   redirect({ fallback: '/404.html' })
 ]).catch((err) => {
