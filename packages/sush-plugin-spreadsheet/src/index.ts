@@ -39,7 +39,6 @@ function SUSHPluginSpreadsheet (
       xhr.open('GET', sheetDataUrl, true);
       xhr.addEventListener('load', () => resolve(xhr));
       xhr.addEventListener('error', (ev) => reject(ev.error));
-      xhr.withCredentials = true;
       xhr.send();
     })
     .then((xhr: XMLHttpRequest) => {
