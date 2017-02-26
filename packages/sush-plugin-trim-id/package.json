@@ -1,7 +1,7 @@
 {
   "name": "sush-plugin-trim-id",
   "description": "SUSH Plugin for trimming head or tail from ID",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "config": {
     "library_name": [
