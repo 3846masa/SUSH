@@ -34,7 +34,8 @@ describe('SUSHPluginRedirect', () => {
     .catch((err: Error) => {
       assert.ok(err.message.match(/not found/));
       done();
-    });
+    })
+    .catch((err) => done(err));
   });
 
   it('redirects to fallback if not match', (done) => {

@@ -53,7 +53,8 @@ describe('SUSHPluginGoogleAnalytics', () => {
     .catch((err: Error) => {
       assert.strictEqual(err.message, 'Timeout.');
       done();
-    });
+    })
+    .catch((err) => done(err));
   });
 
   it('sends analyticsId via ga', (done) => {
