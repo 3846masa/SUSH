@@ -10,7 +10,8 @@
     ],
     "types": [
       "node",
-      "mocha"
+      "mocha",
+      "google.analytics"
     ],
     "noImplicitAny": true,
     "strictNullChecks": true,

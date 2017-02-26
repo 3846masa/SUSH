@@ -57,6 +57,10 @@
   dependencies:
     "@types/node" "*"
 
+"@types/google.analytics@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/google.analytics/-/google.analytics-0.0.29.tgz#71ba2ece06be5e2649ce507de6c83f47bb218e64"
+
 "@types/handlebars@^4.0.31":
   version "4.0.31"
   resolved "https://registry.yarnpkg.com/@types/handlebars/-/handlebars-4.0.31.tgz#a7fba66fafe42713aee88eeca8db91192efe6e72"
