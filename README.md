@@ -95,8 +95,6 @@ sush.flow([
 
 ## Plugins
 
-**[WIP]**
-
 - [sush](./packages/sush)
   - Core module for SUSH
 - [sush-plugin-trim-id](./packages/sush-plugin-trim-id)
@@ -108,9 +106,9 @@ sush.flow([
 - [sush-plugin-add-object](./packages/sush-plugin-add-object)
   - Add object to URL list
 - [sush-plugin-google-analytics](./packages/sush-plugin-google-analytics)
-  - Send Google Analytics data
-- [sush-plugin-template](./packages/sush-plugin-template)
-  - Template of plugins
+  - Send pageview to Google Analytics
+- [sush-plugin-template](#)
+  - **[WIP]** Template of plugins
 
 ## Contribute
 
