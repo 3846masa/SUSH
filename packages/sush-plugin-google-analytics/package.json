@@ -1,0 +1,30 @@
+{
+  "name": "sush-plugin-google-analytics",
+  "description": "SUSH Plugin for sending url to Google Analytics.",
+  "version": "0.0.1",
+  "author": "3846masa <3846masahiro+git@gmail.com>",
+  "config": {
+    "library_name": [
+      "SUSH",
+      "$googleAnalytics"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "sush": "^1.0.0"
+  },
+  "files": [
+    "dist",
+    "src/**/*.d.ts"
+  ],
+  "keywords": [
+    "SUSH",
+    "SUSH-plugin",
+    "url-shortner",
+    "google-analytics"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-google-analytics",
+  "types": "src/index.d.ts"
+}
