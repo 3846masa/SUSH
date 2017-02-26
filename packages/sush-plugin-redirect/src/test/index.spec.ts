@@ -6,6 +6,7 @@ import SUSHPluginRedirect from '../';
 
 describe('SUSHPluginRedirect', () => {
   let sush: SUSH;
+  let locationStub: Location;
   let metaStub: (...args: any[]) => HTMLMetaElement;
 
   before(() => {
@@ -21,7 +22,9 @@ describe('SUSHPluginRedirect', () => {
     // Init SUSH
     sush = new SUSH();
     // Location mock
-    (sush as any)._location = new URL('https://example.com/#example');
+    locationStub = new URL('https://example.com/#example') as any;
+    (sush as any)._location = locationStub;
+    (SUSHPluginRedirect as any)._location = locationStub;
 
     // Stubs
     td.replace(document.head, 'appendChild');
@@ -39,28 +42,30 @@ describe('SUSHPluginRedirect', () => {
   });
 
   it('redirects to fallback if not match', (done) => {
-    const expected = '0;URL=https://redirect.example';
+    const expected = new URL('https://redirect.example').href;
 
     sush.flow([
-      SUSHPluginRedirect({ fallback: 'https://redirect.example' })
+      SUSHPluginRedirect({ fallback: expected })
     ])
     .then(() => {
-      td.verify(document.head.appendChild(metaStub(expected)));
+      td.verify(document.head.appendChild(metaStub(`0;URL=${expected}`)));
+      assert.strictEqual(locationStub.href, expected);
       done();
     })
     .catch((err) => done(err));
   });
 
   it('redirects to matched URL', (done) => {
-    const expected = '0;URL=https://redirect.example';
+    const expected = new URL('https://redirect.example').href;
 
-    sush.stock.set('example', 'https://redirect.example');
+    sush.stock.set('example', expected);
 
     sush.flow([
       SUSHPluginRedirect()
     ])
     .then(() => {
-      td.verify(document.head.appendChild(metaStub(expected)));
+      td.verify(document.head.appendChild(metaStub(`0;URL=${expected}`)));
+      assert.strictEqual(locationStub.href, expected);
       done();
     })
     .catch((err) => done(err));

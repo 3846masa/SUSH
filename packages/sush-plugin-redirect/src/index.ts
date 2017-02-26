@@ -20,8 +20,13 @@ function SUSHPluginRedirect (
     meta.setAttribute('content', `0;URL=${redirectUrl}`);
     document.head.appendChild(meta);
 
+    // Redirect via JavaScript Location
+    (SUSHPluginRedirect as any)._location.href = redirectUrl;
+
     return { id, stock } as SUSHInfo;
   };
 };
+
+(SUSHPluginRedirect as any)._location = location;
 
 export default SUSHPluginRedirect;
