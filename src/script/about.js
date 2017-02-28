@@ -69,7 +69,7 @@ const vue = new Vue({
       this.error = err;
     },
     submit() {
-      if (isValidURL(this.url)) {
+      if (!isValidURL(this.url)) {
         return this.setError('Invalid URL');
       }
       if (sush.stock.has(this.id)) {
