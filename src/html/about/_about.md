@@ -7,7 +7,7 @@
 ## Table of Contents
 <!-- TOC depthFrom:2 depthTo:2 updateOnSave:false -->
 
-- [What's that](#whats-that)
+- [What's that](#what-s-that)
 - [How to use](#how-to-use)
 - [Plugins](#plugins)
 - [License](#license)
