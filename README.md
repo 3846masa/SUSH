@@ -3,14 +3,14 @@
 ![SUSH](./img/logo.png)
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-[![Build Status](http://img.shields.io/travis/3846masa/SUSH/develop.svg?style=flat-square)](https://travis-ci.org/3846masa/SUSH)
+[![Build Status](https://img.shields.io/travis/3846masa/SUSH/develop.svg?style=flat-square)](https://travis-ci.org/3846masa/SUSH)
 [![codecov](https://img.shields.io/codecov/c/github/3846masa/SUSH/develop.svg?style=flat-square)](https://codecov.io/gh/3846masa/SUSH)
 
 > 🍣 Simple URL Shortener which can be provided from a static HTML server.
 
 This is the URL shortener which can be provided from a static HTML server.
 
-When you access ``http://example.com/#/google``, SUSH gets shorten-ID from hash (``/google``), and redirect URL.
+When you access ``http://your.domain/#/example``, SUSH gets ID from hash (``/example``), and redirect to URL associated with ID.
 
 You can provide URL shortener via GitHub Pages or any HTTP server, because it is able to work on browser.
 
@@ -48,25 +48,37 @@ npm install --save sush [...SUSH_PLUGINS]
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Redirecting...</p>
+
+  <!-- SUSH scripts -->
   <script src="https://unpkg.com/sush"></script>
   <script src="https://unpkg.com/sush-plugin-trim-id"></script>
+  <script src="https://unpkg.com/sush-plugin-spreadsheet"></script>
   <script src="https://unpkg.com/sush-plugin-google-analytics"></script>
   <script src="https://unpkg.com/sush-plugin-redirect"></script>
+
+  <!-- main script -->
   <script>
     var sheetUrl =
-      'https://docs.google.com/spreadsheets/d/XXXXXX_XXXXXX/edit#gid=0';
+      'https://docs.google.com/spreadsheets/d/XXXXXXX/edit#gid=XXX';
 
-    var sush = new SUSH();
+    var sush = new SUSH({ mode: 'lower' });
+
     sush.flow([
       SUSH.$trimId({ head: 1 }),
       SUSH.$spreadsheet({ sheetUrl: sheetUrl }),
-      SUSH.$analytics({ analyticsId: 'UA-XXXXXXXX-1' }),
-      SUSH.$redirect({ fallback: '/404.html' })
-    ]).catch((err) => {
-      console.error(err.stack || err);
+      SUSH.$googleAnalytics({ analyticsId: 'UA-XXXXXXXX-1' }),
+      SUSH.$redirect({ fallback: '/404/' })
+    ])
+    .catch((err) => {
+      console.error(err);
     });
   </script>
-</head>
+</body>
 </html>
 ```
 
@@ -75,7 +87,7 @@ npm install --save sush [...SUSH_PLUGINS]
 ```js
 import SUSH from 'sush';
 import trimId from 'sush-plugin-trim-id';
-import spreadSheet from 'sush-plugin-spreadsheet';
+import spreadsheet from 'sush-plugin-spreadsheet';
 import analytics from 'sush-plugin-google-analytics';
 import redirect from 'sush-plugin-redirect';
 
