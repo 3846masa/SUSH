@@ -3,107 +3,92 @@
 <blockquote>
 <p>🍣 Simple URL Shortener which can be provided from a static HTML server.</p>
 </blockquote>
-<h2>Table of Contents</h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 <!-- TOC depthFrom:2 depthTo:2 updateOnSave:false -->
 <ul>
-<li><a href="#whats-that">What&#x27;s that</a></li>
+<li><a href="#what-s-that">What&#39;s that</a></li>
 <li><a href="#how-to-use">How to use</a></li>
 <li><a href="#plugins">Plugins</a></li>
 <li><a href="#license">License</a></li>
 </ul>
 <!-- /TOC -->
-<h2>What&#x27;s that</h2>
+<h2 id="what-s-that">What&#39;s that</h2>
 <p>This is the URL shortener which can be provided from a static HTML server.</p>
 <p>When you access <code>http://your.domain/#/example</code>, SUSH gets ID from hash (<code>/example</code>), and redirect to URL associated with ID.</p>
 <p>You can provide URL shortener via GitHub Pages or any HTTP server, because it is able to work on browser.</p>
-<h2>How to use</h2>
-<h3>Via <a href="https://unpkg.com">unpkg.com</a> (Recommended)</h3>
-<pre><code class="language-html">&#x3C;!DOCTYPE html&#x3E;
-&#x3C;html&#x3E;
-&#x3C;head&#x3E;
-  &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
-  &#x3C;title&#x3E;Redirecting...&#x3C;/title&#x3E;
-&#x3C;/head&#x3E;
-&#x3C;body&#x3E;
-  &#x3C;p&#x3E;Redirecting...&#x3C;/p&#x3E;
+<h2 id="how-to-use">How to use</h2>
+<h3 id="via-unpkg-com-https-unpkg-com-recommended-">Via <a href="https://unpkg.com">unpkg.com</a> (Recommended)</h3>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;Redirecting...&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Redirecting...&lt;/p&gt;
 
-  &#x3C;!-- SUSH scripts --&#x3E;
-  &#x3C;script src=&#x22;https://unpkg.com/sush&#x22;&#x3E;&#x3C;/script&#x3E;
-  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-trim-id&#x22;&#x3E;&#x3C;/script&#x3E;
-  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-spreadsheet&#x22;&#x3E;&#x3C;/script&#x3E;
-  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-add-object&#x22;&#x3E;&#x3C;/script&#x3E;
-  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-google-analytics&#x22;&#x3E;&#x3C;/script&#x3E;
-  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-redirect&#x22;&#x3E;&#x3C;/script&#x3E;
+  &lt;!-- SUSH scripts --&gt;
+  &lt;script src=&quot;https://unpkg.com/sush&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/sush-plugin-trim-id&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/sush-plugin-spreadsheet&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/sush-plugin-add-object&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/sush-plugin-google-analytics&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/sush-plugin-redirect&quot;&gt;&lt;/script&gt;
 
-  &#x3C;!-- main script --&#x3E;
-  &#x3C;script&#x3E;
+  &lt;!-- main script --&gt;
+  &lt;script&gt;
     var sheetUrl =
-      &#x27;https://docs.google.com/spreadsheets/d/XXXXXXX/edit#gid=XXX&#x27;;
+      &#39;https://docs.google.com/spreadsheets/d/XXXXXXX/edit#gid=XXX&#39;;
 
-    var sush = new SUSH({ mode: &#x27;lower&#x27; });
+    var sush = new SUSH({ mode: &#39;lower&#39; });
 
     sush.flow([
       SUSH.$trimId({ head: 1 }),
       SUSH.$spreadsheet({ sheetUrl: sheetUrl }),
-      SUSH.$addObject({ &#x27;example&#x27;: &#x27;https://example.com&#x27; }),
-      SUSH.$googleAnalytics({ analyticsId: &#x27;UA-XXXXXXXX-1&#x27; }),
-      SUSH.$redirect({ fallback: &#x27;/404/&#x27; })
+      SUSH.$addObject({ &#39;example&#39;: &#39;https://example.com&#39; }),
+      SUSH.$googleAnalytics({ analyticsId: &#39;UA-XXXXXXXX-1&#39; }),
+      SUSH.$redirect({ fallback: &#39;/404/&#39; })
     ])
-    .catch((err) =&#x3E; {
+    .catch((err) =&gt; {
       console.error(err);
     });
-  &#x3C;/script&#x3E;
-&#x3C;/body&#x3E;
-&#x3C;/html&#x3E;
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<h3>Use Node.js (e.g. browserify, Webpack)</h3>
+<h3 id="use-node-js-e-g-browserify-webpack-">Use Node.js (e.g. browserify, Webpack)</h3>
 <pre><code>npm install --save sush sush-plugin-redirect [...SUSH_PLUGINS]
-</code></pre>
-<h2>Plugins</h2>
+</code></pre><h2 id="plugins">Plugins</h2>
 <ul>
-<li>
-<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush">sush</a></p>
-<ul>
+<li><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush">sush</a><ul>
 <li>Core module for SUSH</li>
 </ul>
 </li>
-<li>
-<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-trim-id">sush-plugin-trim-id</a></p>
-<ul>
+<li><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-trim-id">sush-plugin-trim-id</a><ul>
 <li>Trim head or tail from ID</li>
 </ul>
 </li>
-<li>
-<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-redirect">sush-plugin-redirect</a></p>
-<ul>
+<li><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-redirect">sush-plugin-redirect</a><ul>
 <li>Redirect to URL associated with id</li>
 </ul>
 </li>
-<li>
-<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-spreadsheet">sush-plugin-spreadsheet</a></p>
-<ul>
+<li><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-spreadsheet">sush-plugin-spreadsheet</a><ul>
 <li>Fetch Google SpreadSheet as URL list</li>
 </ul>
 </li>
-<li>
-<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-add-object">sush-plugin-add-object</a></p>
-<ul>
+<li><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-add-object">sush-plugin-add-object</a><ul>
 <li>Add object to URL list</li>
 </ul>
 </li>
-<li>
-<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-google-analytics">sush-plugin-google-analytics</a></p>
-<ul>
+<li><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-google-analytics">sush-plugin-google-analytics</a><ul>
 <li>Send pageview to Google Analytics</li>
 </ul>
 </li>
-<li>
-<p><a href="#">sush-plugin-template</a></p>
-<ul>
+<li><a href="#">sush-plugin-template</a><ul>
 <li><strong>[WIP]</strong> Template of plugins</li>
 </ul>
 </li>
 </ul>
-<h2>License</h2>
+<h2 id="license">License</h2>
 <p><a href="https://3846masa.mit-license.org">MIT © 3846masa</a></p>
 </main><script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script><script src="https://unpkg.com/vue/dist/vue.min.js"></script><script src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script src="https://unpkg.com/sush"></script><script src="https://unpkg.com/sush-plugin-spreadsheet"></script><script src="/script/about.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></body></html>
