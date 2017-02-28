@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SUSH | Simple URL Shortener</title><link rel="stylesheet" href="/style/about.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css"></head><body><main class="max-width-4 mx-auto px2 py4 markdown-body"><h1><img src="../asset/logo.svg" alt="SUSH"></h1><div id="app"><div class="ui fluid labeled input my1"><div class="ui label">URL</div><input placeholder="https://example.com" v-model="url"></div><div class="ui fluid labeled input my1"><div class="ui label">https://sush.ml/#/</div><input placeholder="example" v-model="id"></div><p class="p0 my1"><button class="ui fluid primary button" disabled v-bind:disabled="disabled" v-bind:class="{ 'loading': loading }" v-on:click="submit" v-show="!error &amp;&amp; !success">Submit</button><button class="ui fluid red button" style="display: none;" disabled v-show="error">{{error}}</button><div class="ui fluid action input" style="display: none;" v-show="success"><input readonly v-bind:value="shorten"><button class="ui right teal button" v-bind:data-clipboard-text="shorten" ref="copy">Copy</button></div></p></div><p><a href="https://travis-ci.org/3846masa/SUSH"><img src="http://img.shields.io/travis/3846masa/SUSH/develop.svg?style=flat-square" alt="Build Status"></a>
+<a href="https://codecov.io/gh/3846masa/SUSH"><img src="https://img.shields.io/codecov/c/github/3846masa/SUSH/develop.svg?style=flat-square" alt="codecov"></a></p>
+<blockquote>
+<p>🍣 Simple URL Shortener which can be provided from a static HTML server.</p>
+</blockquote>
+<h2>Table of Contents</h2>
+<!-- TOC depthFrom:2 depthTo:2 updateOnSave:false -->
+<ul>
+<li><a href="#whats-that">What&#x27;s that</a></li>
+<li><a href="#how-to-use">How to use</a></li>
+<li><a href="#plugins">Plugins</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<!-- /TOC -->
+<h2>What&#x27;s that</h2>
+<p>This is the URL shortener which can be provided from a static HTML server.</p>
+<p>When you access <code>http://your.domain/#/example</code>, SUSH gets ID from hash (<code>/example</code>), and redirect to URL associated with ID.</p>
+<p>You can provide URL shortener via GitHub Pages or any HTTP server, because it is able to work on browser.</p>
+<h2>How to use</h2>
+<h3>Via <a href="https://unpkg.com">unpkg.com</a> (Recommended)</h3>
+<pre><code class="language-html">&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html&#x3E;
+&#x3C;head&#x3E;
+  &#x3C;meta charset=&#x22;utf-8&#x22;&#x3E;
+  &#x3C;title&#x3E;Redirecting...&#x3C;/title&#x3E;
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+  &#x3C;p&#x3E;Redirecting...&#x3C;/p&#x3E;
+
+  &#x3C;!-- SUSH scripts --&#x3E;
+  &#x3C;script src=&#x22;https://unpkg.com/sush&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-trim-id&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-spreadsheet&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-add-object&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-google-analytics&#x22;&#x3E;&#x3C;/script&#x3E;
+  &#x3C;script src=&#x22;https://unpkg.com/sush-plugin-redirect&#x22;&#x3E;&#x3C;/script&#x3E;
+
+  &#x3C;!-- main script --&#x3E;
+  &#x3C;script&#x3E;
+    var sheetUrl =
+      &#x27;https://docs.google.com/spreadsheets/d/XXXXXXX/edit#gid=XXX&#x27;;
+
+    var sush = new SUSH({ mode: &#x27;lower&#x27; });
+
+    sush.flow([
+      SUSH.$trimId({ head: 1 }),
+      SUSH.$spreadsheet({ sheetUrl: sheetUrl }),
+      SUSH.$addObject({ &#x27;example&#x27;: &#x27;https://example.com&#x27; }),
+      SUSH.$googleAnalytics({ analyticsId: &#x27;UA-XXXXXXXX-1&#x27; }),
+      SUSH.$redirect({ fallback: &#x27;/404/&#x27; })
+    ])
+    .catch((err) =&#x3E; {
+      console.error(err);
+    });
+  &#x3C;/script&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
+</code></pre>
+<h3>Use Node.js (e.g. browserify, Webpack)</h3>
+<pre><code>npm install --save sush sush-plugin-redirect [...SUSH_PLUGINS]
+</code></pre>
+<h2>Plugins</h2>
+<ul>
+<li>
+<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush">sush</a></p>
+<ul>
+<li>Core module for SUSH</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-trim-id">sush-plugin-trim-id</a></p>
+<ul>
+<li>Trim head or tail from ID</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-redirect">sush-plugin-redirect</a></p>
+<ul>
+<li>Redirect to URL associated with id</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-spreadsheet">sush-plugin-spreadsheet</a></p>
+<ul>
+<li>Fetch Google SpreadSheet as URL list</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-add-object">sush-plugin-add-object</a></p>
+<ul>
+<li>Add object to URL list</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/3846masa/SUSH/tree/master/packages/sush-plugin-google-analytics">sush-plugin-google-analytics</a></p>
+<ul>
+<li>Send pageview to Google Analytics</li>
+</ul>
+</li>
+<li>
+<p><a href="#">sush-plugin-template</a></p>
+<ul>
+<li><strong>[WIP]</strong> Template of plugins</li>
+</ul>
+</li>
+</ul>
+<h2>License</h2>
+<p><a href="https://3846masa.mit-license.org">MIT © 3846masa</a></p>
+</main><script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script><script src="https://unpkg.com/vue/dist/vue.min.js"></script><script src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script><script src="https://unpkg.com/sush"></script><script src="https://unpkg.com/sush-plugin-spreadsheet"></script><script src="/script/about.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script></body></html>
