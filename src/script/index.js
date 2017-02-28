@@ -17,6 +17,7 @@ sush.flow([
   }),
   SUSH.$googleAnalytics({
     analyticsId: 'UA-74328816-1',
+    timeout: 1000,
   }),
   SUSH.$redirect({
     fallback: '/404/',
