@@ -1,7 +1,7 @@
 {
   "name": "sush-plugin-google-analytics",
   "description": "SUSH Plugin for sending url to Google Analytics.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "3846masa <3846masahiro+git@gmail.com>",
   "config": {
     "library_name": [
