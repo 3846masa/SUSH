@@ -1,4 +1,4 @@
-[![Build Status](http://img.shields.io/travis/3846masa/SUSH/develop.svg?style=flat-square)](https://travis-ci.org/3846masa/SUSH)
+[![Build Status](https://img.shields.io/travis/3846masa/SUSH/develop.svg?style=flat-square)](https://travis-ci.org/3846masa/SUSH)
 [![codecov](https://img.shields.io/codecov/c/github/3846masa/SUSH/develop.svg?style=flat-square)](https://codecov.io/gh/3846masa/SUSH)
 
 > 🍣 Simple URL Shortener which can be provided from a static HTML server.
