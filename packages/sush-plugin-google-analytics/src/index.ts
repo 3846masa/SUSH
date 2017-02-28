@@ -27,11 +27,11 @@ function SUSHPluginGoogleAnalytics (
 
     // Load Google Analytics
     const script = document.createElement('script');
-    script.src = '//www.google-analytics.com/analytics.js';
+    script.src = 'https://www.google-analytics.com/analytics.js';
     document.head.appendChild(script);
 
     // Wait for sending to Google Analytics
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _resolve) => {
       ga('create', analyticsId, { allowAnchor: true });
       ga('send', 'pageview', {
         page: location.href.replace(location.origin, ''),
@@ -39,8 +39,8 @@ function SUSHPluginGoogleAnalytics (
           resolve(info);
         }
       });
-      // When timeouted, throws Error.
-      setTimeout(() => reject(new Error('Timeout.')), timeout);
+      // When timeouted, skipping.
+      setTimeout(() => resolve(info), timeout);
     }) as Promise<SUSHInfo>;
   };
 };

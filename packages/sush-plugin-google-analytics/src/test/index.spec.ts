@@ -40,7 +40,7 @@ describe('SUSHPluginGoogleAnalytics', () => {
     .catch((err) => done(err));
   });
 
-  it('throws Error when hitCallback is not called', (done) => {
+  it('skips when hitCallback is not called until timeout', (done) => {
     // noop
     (window as any).ga = () => undefined;
 
@@ -50,8 +50,7 @@ describe('SUSHPluginGoogleAnalytics', () => {
         timeout: 500
       })
     ])
-    .catch((err: Error) => {
-      assert.strictEqual(err.message, 'Timeout.');
+    .then(() => {
       done();
     })
     .catch((err) => done(err));
