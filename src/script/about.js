@@ -27,7 +27,10 @@ function sendForms(id, url) {
 
     const iframe = document.createElement('iframe');
     iframe.style.display = 'none';
-    iframe.addEventListener('load', resolve);
+    iframe.addEventListener('load', () => {
+      resolve();
+      iframe.remove();
+    });
     iframe.addEventListener('error', reject);
     iframe.setAttribute('src', formUrlObj.href);
     document.body.appendChild(iframe);
