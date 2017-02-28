@@ -4,6 +4,7 @@ html, body, main {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #212121;
   background: #FFFFFF;
@@ -17,7 +18,7 @@ html, body, main {
 
 .inner {
   text-align: center;
-  padding: 25px;
+  padding: 5rem;
   background: #F7F7F7;
   & img {
     max-width: 70vw;
