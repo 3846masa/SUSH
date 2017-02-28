@@ -1,0 +1,28 @@
+@import "https://unpkg.com/normalize.css";
+
+html, body, main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-weight: bold;
+  color: #212121;
+  background: #FFFFFF;
+}
+
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  text-align: center;
+  padding: 25px;
+  background: #F7F7F7;
+  & img {
+    max-width: 70vw;
+    @media screen and (max-width: 350px) {
+      max-width: 90vw;
+    }
+  }
+}

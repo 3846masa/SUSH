@@ -1,0 +1,68 @@
+extends ./_base.pug
+
+block head
+  title
+    | SUSH | Simple URL Shortener
+  link(rel="stylesheet", href="/style/about.css")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css")
+
+block body
+  main.max-width-4.mx-auto.px2.py4.markdown-body
+    h1
+      img(src="../asset/logo.svg", alt="SUSH")
+    #app
+      .ui.fluid.labeled.input.my1
+        .ui.label
+          | URL
+        input(
+          placeholder="https://example.com",
+          v-model="url"
+        )
+      .ui.fluid.labeled.input.my1
+        .ui.label
+          | https://sush.ml/#/
+        input(
+          placeholder="example",
+          v-model="id"
+        )
+      p.p0.my1
+        button.ui.fluid.primary.button(
+          disabled,
+          v-bind:disabled="disabled",
+          v-bind:class="{ 'loading': loading }",
+          v-on:click="submit",
+          v-show="!error && !success",
+        )
+          | Submit
+        button.ui.fluid.red.button(
+          style="display: none;",
+          disabled,
+          v-show="error"
+        )
+          | {{error}}
+        .ui.fluid.action.input(
+          style="display: none;",
+          v-show="success",
+        )
+          input(
+            readonly,
+            v-bind:value="shorten"
+          )
+          button.ui.right.teal.button(
+            v-bind:data-clipboard-text="shorten",
+            ref="copy"
+          )
+            | Copy
+    include:remark ./_about.md
+
+block script
+  script(src="https://cdn.polyfill.io/v2/polyfill.min.js")
+  script(src="https://unpkg.com/vue/dist/vue.min.js")
+  script(src="https://unpkg.com/clipboard/dist/clipboard.min.js")
+  script(src="https://unpkg.com/sush")
+  script(src="https://unpkg.com/sush-plugin-spreadsheet")
+  script(src="/script/about.js")
+  //- Highlight.js
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js")
+  script.
+    hljs.initHighlightingOnLoad();

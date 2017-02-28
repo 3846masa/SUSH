@@ -1,0 +1,36 @@
+{
+  "name": "sush-demo",
+  "version": "0.0.1",
+  "author": "3846masa <3846masahiro+git@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-babili": "^0.0.11",
+    "babel-preset-env": "^1.1.10",
+    "cpx": "^1.5.0",
+    "csswring": "^5.1.1",
+    "gh-pages": "^0.12.0",
+    "jstransformer-remark": "^5.1.0",
+    "npm-run-all": "^4.0.2",
+    "perfectionist": "^2.4.0",
+    "postcss-cli": "^3.0.0-beta",
+    "postcss-cssnext": "^2.9.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^2.6.1"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "npm-run-all -p build:*",
+    "build:cname": "cpx ./src/CNAME ./dist",
+    "build:asset": "cpx ./src/asset/**/* ./dist/asset",
+    "build:html": "pug ./src/html -o ./dist",
+    "build:style": "postcss ./src/style/**/*.css --dir ./dist/style",
+    "build:script": "babel ./src/script --out-dir ./dist/script",
+    "postbuild": "rimraf dist/**/_*",
+    "release": "gh-pages -d dist --silent"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "plugins": {
+    "postcss-cssnext": true,
+    "csswring": true
+  }
+}

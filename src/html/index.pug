@@ -1,0 +1,24 @@
+extends ./_base.pug
+
+block head
+  title
+    | Redirecting... | SUSH
+  meta(name="robots", content="noindex")
+  link(rel="stylesheet", href="/style/index.css")
+
+block body
+  main.outer
+    .inner
+      img(src="/asset/logo.svg")
+      h1 Redirecting...
+
+block script
+  // SUSH script
+  script(src="https://unpkg.com/sush")
+  script(src="https://unpkg.com/sush-plugin-trim-id")
+  script(src="https://unpkg.com/sush-plugin-spreadsheet")
+  script(src="https://unpkg.com/sush-plugin-add-object")
+  script(src="https://unpkg.com/sush-plugin-google-analytics")
+  script(src="https://unpkg.com/sush-plugin-redirect")
+  // Main script
+  script(src="/script/index.js")
