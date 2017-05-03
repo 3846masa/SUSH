@@ -1,5 +1,7 @@
 # SUSH | Simple URL Shortener
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/3846masa/SUSH.svg)](https://greenkeeper.io/)
+
 ![SUSH](./img/logo.png)
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
